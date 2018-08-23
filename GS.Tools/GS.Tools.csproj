@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\String.cs" />
     <Compile Include="Log\FileNameSuffixLog.cs" />
     <Compile Include="Log\LocationLog.cs" />
     <Compile Include="Log\Log.cs" />
