@@ -21,3 +21,12 @@ Extensions functions of string conversion/processing
 * string.ToDouble = Convert string to double checking for decimal point
 * string.ToInt = Parse text to int
 * string.ToTime = Convert string to Time (DateTime)
+
+### Numbers
+
+* (decimal/double).Equivalent = Check if two decimal/double numbers are equals considering precision
+* (int/decimal/double).IsBetween = Check if int/decimal/double number is in range
+* (int/decimal/double).ForceInterval = Force int/decimal/value value in interval
+* (decimal/double).IsZero = Check if decimal/double value is about zero (precision = 2)
+* (int/long).ToBytes = Format size to multiples of Byte
+* (decimal/double).ToInvariantString = Returns double to string with invariant decimal separator

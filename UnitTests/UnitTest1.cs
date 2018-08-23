@@ -67,5 +67,36 @@ namespace UnitTests
             foreach (var d in new string[] { "14:00:21", "16:23", "6:9" })
                 Console.WriteLine("ToTime(" + d + ") = " + d.ToTime());
         }
+
+        [TestMethod]
+        public void TestExtensionsNumber()
+        {
+            double do1 = 12.2983, do2 = 12.291;
+
+            Console.WriteLine(string.Format("Equals (double) ({0} , {1}) = {2}", do1, do2, do1.Equivalent(do2,mode:Numbers.EqualsTestMode.Round)));
+            Console.WriteLine(string.Format("Equals (double) ({0} , {1}) = {2}", do1, do2, do1.Equivalent(do2, mode: Numbers.EqualsTestMode.Truncate)));
+
+            decimal de1 = 12.0195m, de2 = 12.01m;
+            Console.WriteLine(string.Format("Equals (decimal) ({0} , {1}) = {2}", de1, de2, de1.Equivalent(de2, mode: Numbers.EqualsTestMode.Round)));
+            Console.WriteLine(string.Format("Equals (decimal) ({0} , {1}) = {2}", de1, de2, de1.Equivalent(de2, mode: Numbers.EqualsTestMode.Truncate)));
+
+            Console.WriteLine(string.Format("IsBetween({0},{1},{2}) = {3}", (int)4, 2, 9, 4.IsBetween(2, 9)));
+            Console.WriteLine(string.Format("IsBetween({0},{1},{2}) = {3}", (double)4, 5, 9, ((double)4).IsBetween(5, 9)));
+            Console.WriteLine(string.Format("IsBetween({0},{1},{2}) = {3}", (decimal)2, 1, 9, ((decimal)2).IsBetween(1, 9)));
+
+            Console.WriteLine(string.Format("ForceInterval({0},{1},{2}) = {3}", 10, 4, 5, 10.ForceInterval(4, 5)));
+            Console.WriteLine(string.Format("ForceInterval({0},{1},{2}) = {3}", (double)1, 4, 5, ((double)1).ForceInterval(4, 5)));
+            Console.WriteLine(string.Format("ForceInterval({0},{1},{2}) = {3}", (decimal)3, 4, 5, ((decimal)3).ForceInterval(4, 5)));
+
+            Console.WriteLine(string.Format("IsZero({0}) = {1}", 0.0001, ((double)0.0001).IsZero()));
+            Console.WriteLine(string.Format("IsZero({0}) = {1}", 0.01, ((decimal)0.01).IsZero()));
+
+            Console.WriteLine(string.Format("{0} = {1}", 1548, 1548.ToBytes()));
+            Console.WriteLine(string.Format("{0} = {1}", 1000, 1000.ToBytes()));
+            Console.WriteLine(string.Format("{0} = {1}", 248456848465, 248456848465.ToBytes()));
+
+            Console.WriteLine(string.Format("{0} = {1}", 109032.02090, (109032.02090).ToInvariantString()));
+        }
+
     }
 }
